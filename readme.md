@@ -13,3 +13,7 @@
 3. ViewLogs
 จะแสดงอุณหภูมิที่ user กรอกในหน้า LogTemperature 
 ข้อมูลจะแสดงเป็นตารางเกี่ยวกับรายละเอียดทั้งหมดที่บันทึกไว้
+
+## สามารถเข้าชมผ่านลิงค์นี้
+Inspect: https://vercel.com/wanida-limsakuls-projects/myproject-frontend/2HDn6r3qQ3e9L1ESz62wnEc94TVT
+Production: https://myproject-frontend-ekmb3bd0s-wanida-limsakuls-projects.vercel.app
