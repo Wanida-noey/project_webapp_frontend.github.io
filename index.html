@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Drone Console</title>
+  <link rel="stylesheet" href="./styles.css" />
+  <script type="module" src="./app.js"></script>
+</head>
+
+<body>
+  <header class="topbar container">
+    <div class="brand">Drone ✨</div>
+    <nav class="nav">
+      <button id="btnConfig"   class="pill-btn active" type="button">View Config</button>
+      <button id="btnLogTemp"  class="pill-btn" type="button">LogTemperature</button>
+      <button id="btnViewLogs" class="pill-btn" type="button">ViewLogs</button>
+    </nav>
+  </header>
+
+  <main class="container pages">
+    <!-- Page #1 -->
+    <section id="page-config" class="page active">
+      <h2>View Config</h2>
+      <p class="caption">read from API Server (Assignment 1)</p>
+      
+      <div class="card">
+        <div class="kv"><span>Drone ID</span>   <strong id="droneId">—</strong></div>
+        <div class="kv"><span>Drone Name</span> <strong id="droneName">—</strong></div>
+        <div class="kv"><span>Light</span>      <strong id="light">—</strong></div>
+        <div class="kv"><span>Country</span>    <strong id="country">—</strong></div>
+      </div>
+      <div id="config-status" class="muted"></div>
+    </section>
+
+    <!-- Page #2 -->
+    <section id="page-form" class="page">
+      <h2>Log Temperature</h2>
+      <form id="log-form" class="card form">
+        <div class="grid-2">
+          <label>Drone ID
+            <input id="form-drone-id" class="input" type="text" readonly />
+          </label>
+          <label>Drone Name
+            <input id="form-drone-name" class="input" type="text" readonly />
+          </label>
+        </div>
+        <div class="grid-2">
+          <label>Country
+            <input id="form-country" class="input" type="text" readonly />
+          </label>
+          <label>Celsius (°C)
+            <input id="form-celsius" class="input" type="number" step="0.1" placeholder="เช่น 36.5" required />
+          </label>
+        </div>
+        <div class="actions">
+          <button class="primary" type="submit">Submit</button>
+          <span id="form-status" class="muted"></span>
+        </div>
+      </form>
+    </section>
+
+    <!-- Page #3 -->
+    <section id="page-logs" class="page">
+      <h2>View Logs</h2>
+      <div class="table-wrap">
+        <table id="logs-table">
+          <thead>
+            <tr>
+              <th>Created</th>
+              <th>Country</th>
+              <th>Drone ID</th>
+              <th>Drone Name</th>
+              <th>Celsius</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <div class="pager">
+        <button id="btn-prev" class="secondary" type="button" disabled>Prev</button>
+        <span id="page-indicator" class="muted">Page 1</span>
+        <button id="btn-next" class="secondary" type="button" disabled>Next</button>
+      </div>
+      <div id="logs-status" class="muted"></div>
+
+      <!-- ที่นี้ไว้ให้ loadLogs() วาดผลลัพธ์แบบง่าย ๆ -->
+      <div id="logsContainer"></div>
+    </section>
+  </main>
+
+  <footer class="container tiny muted">
+    API: <code id="api-base-show">—</code> • Drone: <code id="drone-id-show">—</code>
+  </footer>
+</body>
+</html>
